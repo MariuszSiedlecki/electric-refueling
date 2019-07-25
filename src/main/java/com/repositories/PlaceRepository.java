@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
@@ -23,8 +24,10 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
             "p.chargerType like %?1%")
     List<Place> findPlacesByParam(String param);
 
-//    @Transactional
-//    @Modifying
-//    @Query("delete from Place p where p.placeName = ?1")
-//    int deletePlaceByName(String placeName);
+
+
+    @Transactional
+    @Modifying
+    @Query("delete from Place p where p.placeName = ?1")
+    int deletePlaceByName(String placeName);
 }

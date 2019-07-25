@@ -67,4 +67,11 @@ public class PlaceController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
+    @DeleteMapping("/api/v1/place")
+    public ResponseEntity<?>deletePlaceByName(@RequestParam(value = "name") String placeName){
+        if(placeServices.deletePlaceByName(placeName)){
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    }
 }

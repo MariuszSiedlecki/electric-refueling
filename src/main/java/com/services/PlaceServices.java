@@ -33,17 +33,25 @@ public class PlaceServices {
     }
 
     public Place getPlaceByName(String placeName) {
-        return placeRepository.findPlaceByName(placeName).get();
+        Optional<Place> result = placeRepository.findPlaceByName(placeName);
+        if (result.isPresent()) {
+            return placeRepository.findPlaceByName(placeName).get();
+        }
+        return null;
+
     }
-    public Optional<Place> getOptionalPlaceByName(String placeName){
+
+    public Optional<Place> getOptionalPlaceByName(String placeName) {
         return Optional.of(placeRepository
                 .findPlaceByName(placeName))
                 .orElse(Optional.empty());
     }
-    public List<Place> getPlaces(){
+
+    public List<Place> getPlaces() {
         return placeRepository.findAll();
     }
-    public List<Place> getPlaces(String param){
+
+    public List<Place> getPlaces(String param) {
         return placeRepository.findPlacesByParam(param);
     }
 
@@ -51,9 +59,9 @@ public class PlaceServices {
         return placeRepository.save(place);
     }
 
-    public Place updatePlace(String placeName,Place place){
+    public Place updatePlace(String placeName, Place place) {
         Optional<Place> result = placeRepository.findPlaceByName(placeName);
-        if(result.isPresent()){
+        if (result.isPresent()) {
             result.get().setPlaceName(place.getPlaceName());
             result.get().setAddress(place.getAddress());
             result.get().setChargerType(place.getChargerType());
@@ -61,13 +69,15 @@ public class PlaceServices {
             result.get().setOpeningHours(place.getOpeningHours());
             result.get().setImage(place.getImage());
             result.get().setPlaceInfo(place.getPlaceInfo());
-            return result.get();
-
+            return placeRepository.save(result.get());
         }
         return null;
     }
-}
 
+    public boolean deletePlaceByName(String placeName) {
+        return placeRepository.deletePlaceByName(placeName) == 1;
+    }
+}
 
 
 
