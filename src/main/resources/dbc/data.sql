@@ -1,14 +1,31 @@
 drop table if exists chargers;
 create table chargers(
     id int auto_increment primary key,
-    name varchar (20) not null
+    name varchar (60) not null
     );
-    insert into chargers(id,city,place_name,place_info) values (1,'Krakow','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (2,'Wrocław','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (3,'Opole','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (4,'Legnica','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (5,'Rzeszow','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (6,'Jastarnia','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (7,'Skawina','cc','bb');
-    insert into chargers(id,city,place_name,place_info) values (8,'Lubomierz','cc','bb');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (1,'Cracow','ul.Josepha Conrada 66','IKEA','ok','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (2,'Cracow','ul.Jasnogórska 60','Nisssan','only for customers Nissan','VCS','image','9am-6pm');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (3,'Cracow','ul.Łagiewniki','Electric vehicle charging station','next to the tram loop','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (4,'Cracow','Aleja Ignacego Daszyńskiego 32','EV Charging Outlet, Blue Parking F5','open to close the gallery','EV','image','10am-9pm');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (5,'Cracow','Aleja Pokoju 67','GO + EAuto Charging station for electric cars','gallery M1','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (6,'Cracow','ul,profesora Adama Rożańskiego 32','GreenWay Polska Factory Kraków','gallery Factory','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (7,'Warszawa','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (8,'Gdańsk','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (9,'Jastarnia','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+--     insert into chargers(id,city,place_name,place_info) values (2,'Wrocław','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (3,'Opole','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (4,'Legnica','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (5,'Rzeszow','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (6,'Jastarnia','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (7,'Skawina','cc','bb');
+--     insert into chargers(id,city,place_name,place_info) values (8,'Lubomierz','cc','bb');
 
