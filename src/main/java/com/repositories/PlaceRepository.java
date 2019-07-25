@@ -13,7 +13,6 @@ import java.util.Optional;
 public interface PlaceRepository extends JpaRepository<Place, Long> {
 
     @Query("select p from Place p where p.city = ?1")
-
     Optional<Place> findPlaceByName(String city);
 
     @Query("select p from Place p where " +
@@ -22,7 +21,6 @@ public interface PlaceRepository extends JpaRepository<Place, Long> {
             "p.placeInfo like %?1% " +
             "or " +
             "p.chargerType like %?1%")
-
     List<Place> findPlacesByParam(String param);
 
 //    @Transactional
