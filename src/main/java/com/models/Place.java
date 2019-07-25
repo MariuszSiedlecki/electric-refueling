@@ -32,8 +32,8 @@ public class Place {
     @Column(name ="place_info")
     private String placeInfo;
 
-    @Column(name = "type_charger")
-    private String typeCharger;
+    @Column(name = "charger_type")
+    private String chargerType;
 
     @Column(name = "image")
     private String image;
