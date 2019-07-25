@@ -4,10 +4,10 @@ import lombok.*;
 
 import javax.persistence.*;
 
-//@NoArgsConstructor
-//@AllArgsConstructor
-//@Setter
-//@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Setter
+@Getter
 @Builder
 @Entity
 @Table(name="chargers")
