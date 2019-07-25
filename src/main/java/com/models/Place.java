@@ -29,8 +29,11 @@ public class Place {
     @Column(name = "opening_hours")
     private String openingHours;
 
-    @Column(name ="attention")
-    private String attention;
+    @Column(name ="place_info")
+    private String placeInfo;
+
+    @Column(name = "type_charger")
+    private String typeCharger;
 
     @Column(name = "image")
     private String image;
