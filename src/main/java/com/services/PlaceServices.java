@@ -15,22 +15,9 @@ public class PlaceServices {
 
     public PlaceServices(PlaceRepository placeRepository) {
         this.placeRepository = placeRepository;
-        mockPlaces();
+
     }
 
-    private void mockPlaces() {
-        placeRepository.save(Place
-                .builder()
-                .placeName("mock")
-                .address("Josepha Conrada")
-                .city("Cracow")
-                .chargerType("EV")
-                .image("image")
-                .openingHours("24h")
-                .placeInfo("gallery Bonarca")
-                .build()
-        );
-    }
 
     public Place getPlaceByName(String placeName) {
         Optional<Place> result = placeRepository.findPlaceByName(placeName);
