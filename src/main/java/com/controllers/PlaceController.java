@@ -19,10 +19,7 @@ public class PlaceController {
         this.placeServices = placeServices;
     }
 
-    @GetMapping({"/", "/api", "/api/v1"})
-    public String message() {
-        return "empty";
-    }
+
 
     @GetMapping("/api/v1/place")
     public ResponseEntity<Place> getPlaceByName(@RequestParam(value = "name") String placeName) {
