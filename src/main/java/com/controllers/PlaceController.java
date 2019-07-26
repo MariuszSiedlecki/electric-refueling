@@ -41,7 +41,7 @@ public class PlaceController {
 
     @GetMapping("/api/v1/places")
     public List<Place> getPlace(@RequestParam(value = "param", required = false) String param) {
-        if (StringUtils.isEmpty(param)) {
+        if (param != null) {
             return placeServices.getPlaces();
         } else {
             return placeServices.getPlaces(param);

@@ -21,7 +21,7 @@ public class PlaceServices {
     private void mockPlaces() {
         placeRepository.save(Place
                 .builder()
-                .placeName("Ikea")
+                .placeName("mock")
                 .address("Josepha Conrada")
                 .city("Cracow")
                 .chargerType("EV")
