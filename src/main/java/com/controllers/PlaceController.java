@@ -31,11 +31,6 @@ public class PlaceController {
         }
     }
 
-    @GetMapping("/api/v1/place/optional")
-    public ResponseEntity<Optional<Place>> getPlaceByNameOptional(@RequestParam(value = "name") String placeName) {
-        return new ResponseEntity<>(placeServices.getOptionalPlaceByName(placeName), HttpStatus.OK);
-    }
-
     @GetMapping("/api/v1/places")
     public List<Place> getPlace(@RequestParam(value = "param", required = false) String param) {
         if (param != null) {
