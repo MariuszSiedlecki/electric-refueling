@@ -18,20 +18,11 @@ public class PlaceServices {
 
     }
 
-
     public Place getPlaceByName(String placeName) {
-        Optional<Place> result = placeRepository.findPlaceByName(placeName);
-        if (result.isPresent()) {
-            return placeRepository.findPlaceByName(placeName).get();
-        }
-        return null;
-
-    }
-
-    public Optional<Place> getOptionalPlaceByName(String placeName) {
-        return Optional.of(placeRepository
-                .findPlaceByName(placeName))
-                .orElse(Optional.empty());
+        return Optional
+                .ofNullable(placeRepository.findPlaceByName(placeName))
+                .map(this::placeNameToUpperCase)
+                .orElse(null);
     }
 
     public List<Place> getPlaces() {
@@ -46,23 +37,45 @@ public class PlaceServices {
         return placeRepository.save(place);
     }
 
-    public Place updatePlace(String placeName, Place place) {
-        Optional<Place> result = placeRepository.findPlaceByName(placeName);
-        if (result.isPresent()) {
-            result.get().setPlaceName(place.getPlaceName());
-            result.get().setAddress(place.getAddress());
-            result.get().setChargerType(place.getChargerType());
-            result.get().setCity(place.getCity());
-            result.get().setOpeningHours(place.getOpeningHours());
-            result.get().setImage(place.getImage());
-            result.get().setPlaceInfo(place.getPlaceInfo());
-            return placeRepository.save(result.get());
-        }
-        return null;
+    public Place updatePlace(String placeName, Place place){
+        return Optional.ofNullable(placeRepository.findPlaceByName(placeName))
+                .map(p-> {
+                    p.setPlaceName(place.getPlaceName());
+                    p.setPlaceInfo(place.getPlaceInfo());
+                    p.setOpeningHours(place.getOpeningHours());
+                    p.setChargerType(place.getChargerType());
+                    p.setCity(place.getCity()) ;
+                    p.setAddress(place.getAddress());
+                    p.setImage(place.getImage());
+
+                    return savePlace(p);
+                })
+                .map(this::placeNameToUpperCase)
+                .orElse(null);
     }
 
     public boolean deletePlaceByName(String placeName) {
         return placeRepository.deletePlaceByName(placeName) == 1;
+    }
+
+
+    private Place placeNameToUpperCase(Place place){
+        place.setPlaceName(place.getPlaceName().toUpperCase());
+        return place;
+    }
+
+    private Place updatePlaceResult(Place place){
+        return Place
+                .builder()
+                .id(place.getId())
+                .placeName(place.getPlaceName())
+                .placeInfo(place.getPlaceInfo())
+                .openingHours(place.getOpeningHours())
+                .chargerType(place.getChargerType())
+                .city(place.getCity())
+                .address(place.getAddress())
+                .image(place.getImage())
+                .build();
     }
 }
 
