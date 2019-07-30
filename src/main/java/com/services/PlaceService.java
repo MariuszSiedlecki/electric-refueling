@@ -1,21 +1,24 @@
 package com.services;
 
+import com.commons.mappers.PlaceMapper;
 import com.models.Place;
+import com.models.PlaceDto;
 import com.repositories.PlaceRepository;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
-public class PlaceServices {
+public class PlaceService {
 
     private PlaceRepository placeRepository;
+    private PlaceMapper placeMapper;
 
-    public PlaceServices(PlaceRepository placeRepository) {
+    public PlaceService(PlaceRepository placeRepository, PlaceMapper placeMapper) {
         this.placeRepository = placeRepository;
-
+        this.placeMapper = placeMapper;
     }
 
     public Place getPlaceByName(String placeName) {
@@ -27,6 +30,14 @@ public class PlaceServices {
 
     public List<Place> getPlaces() {
         return placeRepository.findAll();
+    }
+
+    public List<PlaceDto> getPlacesDto(){
+        return placeRepository
+                .findAll()
+                .stream()
+                .map(placeMapper::map)
+                .collect(Collectors.toList());
     }
 
     public List<Place> getPlaces(String param) {
@@ -59,9 +70,9 @@ public class PlaceServices {
     }
 
 
-    private Place placeNameToUpperCase(Place place){
-        place.setPlaceName(place.getPlaceName().toUpperCase());
-        return place;
+    private Place placeNameToUpperCase(Place p){
+        p.setPlaceName(p.getPlaceName().toUpperCase());
+        return p;
     }
 
     private Place updatePlaceResult(Place place){

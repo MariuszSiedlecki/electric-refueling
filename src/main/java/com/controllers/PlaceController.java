@@ -1,56 +1,59 @@
 package com.controllers;
 
 import com.models.Place;
-import com.services.PlaceServices;
+import com.models.PlaceDto;
+import com.services.PlaceService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/")
 public class PlaceController {
-    private PlaceServices placeServices;
+    private PlaceService placeService;
 
-    public PlaceController(PlaceServices placeServices) {
-        this.placeServices = placeServices;
+    public PlaceController(PlaceService placeServices) {
+        this.placeService = placeServices;
     }
-
-
 
     @GetMapping("/api/v1/place")
     public ResponseEntity<Place> getPlaceByName(@RequestParam(value = "name") String placeName) {
-        Place result = placeServices.getPlaceByName(placeName);
+        Place result = placeService.getPlaceByName(placeName);
         if (result != null) {
-            return new ResponseEntity<>(placeServices.getPlaceByName(placeName), HttpStatus.OK);
+            return new ResponseEntity<>(placeService.getPlaceByName(placeName), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
-    @GetMapping("/api/v1/places")
-    public List<Place> getPlace(@RequestParam(value = "param", required = false) String param) {
-        if (param != null) {
-            return placeServices.getPlaces();
-        } else {
-            return placeServices.getPlaces(param);
-        }
+    @GetMapping(value = "/api/v1/places",produces = "application/json")
+    public List<Place> getPlaces() {
+        return placeService.getPlaces();
     }
 
-    @PostMapping("/api/v1/place")
+    @GetMapping(value = "/api/v1/places/dto", produces = "application/json")
+    public List<PlaceDto> getPlacesDto() {
+        return placeService.getPlacesDto();
+    }
+
+    @GetMapping(value = "/api/v1/places/dto/xml",produces = "application/xml")
+    public List<PlaceDto> getPlacesDtoXml() {
+        return placeService.getPlacesDto();
+    }
+
+    @PostMapping(value = "/api/v1/place", produces = "application/json")
     public ResponseEntity<Place> addPlace(@RequestBody Place place) {
         return ResponseEntity
                 .ok()
                 .header("example_header", "example_header_1")
-                .body(placeServices.savePlace(place));
+                .body(placeService.savePlace(place));
     }
 
-    @PutMapping("/api/v1/place")
+    @PutMapping(value = "/api/v1/place", produces = "application/json")
     public ResponseEntity<Place> updatePlace(@RequestParam(value = "name") String placeName, @RequestBody Place place) {
-        Place result = placeServices.updatePlace(placeName, place);
+        Place result = placeService.updatePlace(placeName, place);
         if (result != null) {
             return ResponseEntity
                     .ok()
@@ -59,9 +62,10 @@ public class PlaceController {
         }
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
-    @DeleteMapping("/api/v1/place")
+
+    @DeleteMapping(value = "/api/v1/place", produces = "application/json")
     public ResponseEntity<?>deletePlaceByName(@RequestParam(value = "name") String placeName){
-        if(placeServices.deletePlaceByName(placeName)){
+        if(placeService.deletePlaceByName(placeName)){
             return new ResponseEntity<>(HttpStatus.OK);
         }
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
