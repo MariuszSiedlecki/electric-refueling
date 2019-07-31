@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="document/head :: head_section"></head>
 <body>
    <span><a href="swagger-ui.html">Swagger documentation</a> | <a href="/">Home</a></span>
+
+   <div th:replace="document/content :: content_section_title"></div>
+   <div th:replace="document/tables/user_table :: user_table"></div>
 
 </body>
 </html>
