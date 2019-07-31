@@ -19,8 +19,15 @@
                     <td th:text="${p.getPlaceName()}"></td>
                     <td th:text="${p.getOpeningHours()}"></td>
                     <td th:text="${p.getImage()}"></td>
-
-
+                    <td>
+                        <ul>
+                            <li th:each="t: ${p.getTags()}">
+                            <span class="badge badge-secondary" style="cursor: pointer" th:text="${t}"></span>
+                            </li>
+                        </ul>
+                    </td>
+                    <td></td>
+                    <td><button class="btn btn-danger btn-sm">Delete</button> </td>
                 </tr>
             </table>
         </div>
