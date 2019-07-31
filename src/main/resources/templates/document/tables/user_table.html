@@ -1,0 +1,28 @@
+<div class="container" xmlns:th="http://www.thymeleaf.org" th:fragment="user_table">
+    <div class="row">
+        <div class="col-sm">
+            <table class="table table-dark">
+                <tr class="active">
+                    <th>Place info</th>
+                    <th>Address</th>
+                    <th>Charger type</th>
+                    <th>Place name</th>
+                    <th>Opening hours</th>
+                    <th>Image</th>
+                    <th>Tags</th>
+                    <th>City</th>
+                </tr>
+                <tr th:each="p: ${places}">
+                    <td th:text="${p.getPlaceInfo()}"></td>
+                    <td th:text="${p.getAddress()}"></td>
+                    <td th:text="${p.getChargerType()}"></td>
+                    <td th:text="${p.getPlaceName()}"></td>
+                    <td th:text="${p.getOpeningHours()}"></td>
+                    <td th:text="${p.getImage()}"></td>
+                    <td th:text="${p.getTags()}"></td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
