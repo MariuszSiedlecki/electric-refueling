@@ -14,13 +14,21 @@ create table chargers(
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
     values (5,'Cracow','Aleja Pokoju 67','GO + EAuto Charging station for electric cars','gallery M1','VCS','image','24h');
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
-    values (6,'Cracow','ul,profesora Adama Rożańskiego 32','GreenWay Polska Factory Kraków','gallery Factory','VCS','image','24h');
+    values (6,'Cracow','ul.profesora Adama Rożańskiego 32','GreenWay Polska Factory Kraków','gallery Factory','VCS','image','24h');
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
-    values (7,'Warszawa','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+    values (7,'Cracow','ul.Praska','GO+EAuto','parking','VCS','image','24h');
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
-    values (8,'Gdańsk','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+    values (8,'Cracow','ul.Stanisława Stojałowskiego 12','GreenWay Polska','private,for customers','VCS','image','private');
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
-    values (9,'Jastarnia','ul.Josepha Conrada','cc','bb','VCS','image','24h');
+    values (9,'Cracow','ul.Tadeusza Kościuszki 49','AB City Tour Melexy Cracow','phone','VCS','image','7am-8pm');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (9,'Cracow','ul.Siewna 13','GO+EAuto','phone','CCS,CHAdeMO, Type-2','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (9,'Cracow','ul.Stawowa 61','GreenWay Polska','no','VCS','image','24h');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (9,'Cracow','Aleja Jana Pawła II','GreenWay Polska Podium Park','phone 58 325 10 77','VCS','image','???');
+    insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
+    values (9,'Zielonki','unnamed','GreenWay Polska','phone','EV','image','24h');
 --     insert into chargers(id,city,place_name,place_info) values (2,'Wrocław','cc','bb');
 --     insert into chargers(id,city,place_name,place_info) values (3,'Opole','cc','bb');
 --     insert into chargers(id,city,place_name,place_info) values (4,'Legnica','cc','bb');
