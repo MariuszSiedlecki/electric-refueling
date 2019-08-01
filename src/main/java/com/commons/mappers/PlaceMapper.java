@@ -21,13 +21,14 @@ public class PlaceMapper implements Mapper<Place, PlaceDto>{
                 .collect(Collectors.toList());
         return PlaceDto
                 .builder()
+                .city(from.getCity())
                 .placeName(from.getPlaceName())
                 .address(from.getAddress())
                 .chargerType(from.getChargerType())
                 .openingHours(from.getOpeningHours())
                 .placeInfo(from.getPlaceInfo())
                 .image(from.getImage())
-                .tag(tags)
+                .tags(tags)
                 .build();
     }
 

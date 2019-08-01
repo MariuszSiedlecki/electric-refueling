@@ -21,11 +21,12 @@ public class PlaceDto {
 
     @Id
     private Long id;
+    private String city;
     private String placeName;
     private String address;
     private String openingHours;
     private String placeInfo;
     private String chargerType;
     private String image;
-    private List<String>tag= new ArrayList<>();
+    private List<String>tags= new ArrayList<>();
 }
