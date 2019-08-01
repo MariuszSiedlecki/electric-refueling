@@ -34,7 +34,17 @@ public class PlaceMapper implements Mapper<Place, PlaceDto>{
 
     @Override
     public Place reverseMap(PlaceDto to) {
-        return null;
+        return Place
+                .builder()
+                .city(to.getCity())
+                .placeName(to.getPlaceName())
+                .address(to.getAddress())
+                .chargerType(to.getChargerType())
+                .openingHours(to.getOpeningHours())
+                .placeInfo(to.getPlaceInfo())
+                .image(to.getImage())
+
+                .build();
     }
 
     private enum TagsToStringsList implements Function<Tag, String>{

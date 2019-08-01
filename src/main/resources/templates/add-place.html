@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="document/head :: head_section">
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/add}" th:object="${placeDto}" method="post">
+        <div class="form-row">
+            <div class="col-sm-12 col-sm-6 form-group">
+                <label>Place name
+                <input type="text" name="city"placeholder="city"class="form-control">
+                </label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+
