@@ -10,7 +10,7 @@
                     <th>Place info</th>
                     <th>Opening hours</th>
                     <th>Image</th>
-                    <th>Place #tags</th>
+                    <th>Place tags</th>
                 </tr>
                 <tr th:each="p: ${places}">
                     <td th:text="${p.getCity()}"></td>
@@ -19,7 +19,7 @@
                     <td th:text="${p.getPlaceName()}"></td>
                     <td th:text="${p.getPlaceInfo()}"></td>
                     <td th:text="${p.getOpeningHours()}"></td>
-                    <td th:text="${p.getImage()}"></td>
+                    <td><img th:src="@{${p.getImage()}}" alt="image"></td>
                     <td>
                         <ul>
                             <li th:each="t: ${p.getTags()}">
