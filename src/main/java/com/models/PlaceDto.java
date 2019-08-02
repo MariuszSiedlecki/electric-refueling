@@ -19,8 +19,6 @@ import java.util.List;
 @Data
 public class PlaceDto {
 
-    @Id
-    private Long id;
     private String city;
     private String placeName;
     private String address;
