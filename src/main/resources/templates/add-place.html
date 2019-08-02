@@ -7,12 +7,79 @@
     <form th:action="@{/add}" th:object="${placeDto}" method="post">
         <div class="form-row">
             <div class="col-sm-12 col-sm-6 form-group">
-                <label>Place name
+                <label> Add place
                 <input type="text" name="city"placeholder="city"class="form-control">
                 </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-12 col-sm-6 form-group">
+                <label>
+                <input type="text" name="address"placeholder="address"class="form-control">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                    <input type="text" name="chargerType"placeholder="charger type" class="form-control">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                <input type="text" name="placeName"placeholder="place name" class="form-control">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                    <input type="text" name="placeInfo"placeholder="place info" class="form-control">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                    <input type="text" name="openingHours"placeholder="opening hours" class="form-control">
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                    <textarea type="text" rows="4" name="image"placeholder="image" class="form-control"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-4 col-md-4 form-group">
+                <label>
+                    <textarea type="text" name="tags"placeholder="tags" class="form-control"></textarea>
+                </label>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="col-sm-12 col-sm-6 form-group">
+                <button type="submit" class="btn btn-success btn-sm"><i class="fa fa-save"> Save</i></button>
             </div>
         </div>
     </form>
 </div>
 </body>
+
+
+
+
+
 
