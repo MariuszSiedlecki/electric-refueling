@@ -1,7 +1,7 @@
 drop table if exists chargers;
 create table chargers(
     id int auto_increment primary key,
-    name varchar (60) not null
+    name varchar (100) not null
     );
     insert into chargers(id,city,address,place_name,place_info,charger_type,image,opening_hours)
     values (1,'Cracow','ul.Josepha Conrada 66','IKEA','ok','VCS','image','24h');
