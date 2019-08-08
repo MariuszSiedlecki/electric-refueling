@@ -5,7 +5,7 @@ body, html{
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
-    width: auto;
+    width: 100%;
     margin: 0;
 }
 
@@ -17,4 +17,9 @@ body, html{
     font-family: 'Oleo Script',cursive;
     color: black;
     font-size: 1.0em;
+}
+.table-style > th td{
+    color:black;
+    background-color:darkgray;
+    opacity:0.5;
 }

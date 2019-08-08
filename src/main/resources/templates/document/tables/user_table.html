@@ -19,7 +19,7 @@
                     <td th:text="${p.getPlaceName()}"></td>
                     <td th:text="${p.getPlaceInfo()}"></td>
                     <td th:text="${p.getOpeningHours()}"></td>
-                    <td><img th:src="@{${p.getImage()}}" alt="image" style="height: auto; width: 40%"></td>
+                    <td><img th:src="@{${p.getImage()}}" alt="image" style="height: auto; width:40%"></td>
                     <td>
                         <ul>
                             <li th:each="t: ${p.getTags()}">
