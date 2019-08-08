@@ -3,6 +3,7 @@ package com.controllers;
 import com.commons.mappers.PlaceMapper;
 import com.models.PlaceDto;
 import com.services.PlaceService;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ public class HomeController {
         this.placeMapper = placeMapper;
     }
 
+    @PreAuthorize("hasAnyRole('ADMIN','USER','GUEST')")
     @GetMapping("/")
     public String homePage(Model model){
         model.addAttribute("places", placeService.getPlacesDto());
