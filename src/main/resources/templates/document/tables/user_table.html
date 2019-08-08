@@ -1,7 +1,8 @@
-<div class="container" xmlns:th="http://www.thymeleaf.org" th:fragment="user_table">
+<div class="container" xmlns:th="http://www.thymeleaf.org" th:fragment="user_table"
+     xmlns:background-color="http://java.sun.com/xml/ns/persistence/orm">
     <div class="row">
         <div class="col-sm">
-            <table class="table table-dark">
+            <table class="table table-bordered table-style">
                 <tr class="active">
                     <th>City</th>
                     <th>Address</th>
@@ -28,9 +29,15 @@
                         </ul>
                     </td>
                     <td>
-                    <form action="/delete" method="get">
+                        <form action="/update">
+                            <input type="hidden" th:value="${p.getPlaceName()}" name="place">
+                            <button type="submit" class="btn btn-success btn-sm">update <i class="fa fa-edit"></i></button>
+                        </form>
+                    </td>
+                    <td>
+                    <form action="/delete">
                         <input type="hidden" th:value="${p.getPlaceName()}" name="place">
-                        <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                        <button type="submit" class="btn btn-danger btn-sm">delete <i class="fa fa-battery-1"></i></button>
                     </form>
                     </td>
                 </tr>

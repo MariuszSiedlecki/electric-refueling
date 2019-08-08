@@ -1,10 +1,11 @@
 package com.controllers;
 
+import com.commons.mappers.PlaceMapper;
+import com.models.PlaceDto;
 import com.services.PlaceService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class HomeController {
@@ -29,6 +30,18 @@ public class HomeController {
     @GetMapping("/delete")
     public String deletePlace(@RequestParam(value = "place") String placeName){
         placeService.deletePlaceByName(placeName);
+        return "redirect:/";
+    }
+    @PostMapping("/update")
+    public String updatePlace(@RequestBody()PlaceDto place){
+
+        return "redirect:/";
+    }
+    @PostMapping("/add")
+    public String addPlace(@ModelAttribute() PlaceDto placeDto){
+        System.out.println(placeDto);
+        placeService.savePlace(placeMapper.reverseMap(placeDto));
+
         return "redirect:/";
     }
 }
