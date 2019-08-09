@@ -1,11 +1,14 @@
 package com.services;
 
+import com.commons.extras.CreatorXls;
 import com.commons.mappers.PlaceMapper;
 import com.models.Place;
 import com.models.PlaceDto;
 import com.repositories.PlaceRepository;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -87,6 +90,11 @@ public class PlaceService {
                 .address(place.getAddress())
                 .image(place.getImage())
                 .build();
+    }
+
+    public void getFile(String filename) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException, IOException {
+        CreatorXls<Place> placeFile = new CreatorXls<>(Place.class);
+        placeFile.createFile(filename, getPlaces() );
     }
 }
 
