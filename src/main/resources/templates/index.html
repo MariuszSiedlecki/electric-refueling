@@ -2,8 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="document/head :: head_section"></head>
 <body>
-   <span><a href="swagger-ui.html">Swagger documentation</a> | <a href="/">Home</a>| <a href="/add-place">
-      <i class="fa fa-plus-square"></i> Add place</a>
+   <span><a href="swagger-ui.html">Swagger documentation</a> |
+      <a href="/">Home</a>| <a href="/add-place">
+         <i class="fa fa-plus-square" aria-hidden="true"></i> Add place</a> |
+      <a href="/logout">Log out</a>|  <a href="/file/xls">Get places xls</a>|
+
    </span>
 
    <div th:replace="document/content :: content_section_title"></div>
