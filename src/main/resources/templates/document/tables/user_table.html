@@ -11,7 +11,7 @@
                     <th>Place info</th>
                     <th>Opening hours</th>
                     <th>Image</th>
-                    <th>Place tags</th>
+<!--                    <th>Place phone</th>-->
                 </tr>
                 <tr th:each="p: ${places}">
                     <td th:text="${p.getCity()}"></td>
@@ -24,21 +24,23 @@
                     <td>
                         <ul>
                             <li th:each="t: ${p.getTags()}">
-                            <span class="badge badge-secondary" style="cursor: pointer" th:text="${t}"></span>
+                                <span class="badge badge-secondary" style="cursor: pointer" th:text="${t}"></span>
                             </li>
                         </ul>
                     </td>
                     <td>
                         <form action="/update">
                             <input type="hidden" th:value="${p.getPlaceName()}" name="place">
-                            <button type="submit" class="btn btn-success btn-sm">update <i class="fa fa-edit"></i></button>
+                            <button disabled type="submit" class="btn btn-success btn-sm">update <i class="fa fa-edit"></i>
+                            </button>
                         </form>
                     </td>
                     <td>
-                    <form action="/delete">
-                        <input type="hidden" th:value="${p.getPlaceName()}" name="place">
-                        <button type="submit" class="btn btn-danger btn-sm">delete <i class="fa fa-battery-1"></i></button>
-                    </form>
+                        <form action="/delete">
+                            <input type="hidden" th:value="${p.getPlaceName()}" name="place">
+                            <button type="submit" class="btn btn-success btn-sm" style="color:darkred">delete <i class="fa fa-battery-1"></i>
+                            </button>
+                        </form>
                     </td>
                 </tr>
             </table>
