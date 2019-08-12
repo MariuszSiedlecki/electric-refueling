@@ -1,4 +1,4 @@
-body, html{
+body, html {
 
     height: 100%;
     background-image: url("https://university.listenlights.com/wp-content/uploads/2017/11/cover-page-12.jpg");
@@ -9,17 +9,20 @@ body, html{
     margin: 0;
 }
 
-.content{
-    color:black;
+.content {
+    color: black;
     font-size: 2em;
+
 }
-.content-enjoy{
-    font-family: 'Oleo Script',cursive;
+
+.content-enjoy {
+    font-family: 'Oleo Script', cursive;
     color: black;
     font-size: 1.0em;
 }
-.table-style > th td{
-    color:black;
-    background-color:darkgray;
-    opacity:0.5;
+
+.table-style > th td {
+    color: black;
+    background-color: darkgray;
+    opacity: 0.5;
 }
