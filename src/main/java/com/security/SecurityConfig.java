@@ -28,7 +28,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/login**").permitAll()
+                .antMatchers("/login**")
+                .permitAll()
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -43,13 +44,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     response.sendRedirect("/");
                 })
                 .failureHandler((request, response, exception) -> {
-                    String errorMesage;
+                    String errorMessage;
                     if (exception.getClass().isAssignableFrom(BadCredentialsException.class)) {
-                        errorMesage = "Invalid username or password";
+                        errorMessage = "Invalid username or password";
                     } else {
                         errorMesage = "unkonow error" + exception.getMessage();
                     }
-                    request.getSession().setAttribute("message", errorMesage);
+                    request.getSession().setAttribute("message", errorMessage);
                     response.sendRedirect("/login");
                 })
                 .permitAll()
@@ -61,7 +62,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 })
                 .permitAll()
                 .and()
-                .exceptionHandling().accessDeniedPage("/login")
+                .exceptionHandling()
+                .accessDeniedPage("/login")
                 .and()
                 .csrf().disable()
                 .cors().disable();
