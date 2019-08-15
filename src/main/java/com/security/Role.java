@@ -8,10 +8,10 @@ import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
-@AllArgsConstructor
 @Setter
 @Getter
 @Entity
+@AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "role")
 public class Role {
