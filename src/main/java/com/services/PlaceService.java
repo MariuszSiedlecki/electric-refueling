@@ -35,7 +35,7 @@ public class PlaceService {
         return placeRepository.findAll();
     }
 
-    public List<PlaceDto> getPlacesDto(){
+    public List<PlaceDto> getPlacesDto() {
         return placeRepository
                 .findAll()
                 .stream()
@@ -51,14 +51,14 @@ public class PlaceService {
         return placeRepository.save(place);
     }
 
-    public Place updatePlace(String placeName, Place place){
+    public Place updatePlace(String placeName, Place place) {
         return Optional.ofNullable(placeRepository.findPlaceByName(placeName))
-                .map(p-> {
+                .map(p -> {
                     p.setPlaceName(place.getPlaceName());
                     p.setPlaceInfo(place.getPlaceInfo());
                     p.setOpeningHours(place.getOpeningHours());
                     p.setChargerType(place.getChargerType());
-                    p.setCity(place.getCity()) ;
+                    p.setCity(place.getCity());
                     p.setAddress(place.getAddress());
                     p.setImage(place.getImage());
 
@@ -73,12 +73,12 @@ public class PlaceService {
     }
 
 
-    private Place placeNameToUpperCase(Place p){
+    private Place placeNameToUpperCase(Place p) {
         p.setPlaceName(p.getPlaceName().toUpperCase());
         return p;
     }
 
-    private Place updatePlaceResult(Place place){
+    private Place updatePlaceResult(Place place) {
         return Place
                 .builder()
                 .id(place.getId())
@@ -94,7 +94,7 @@ public class PlaceService {
 
     public void getFile(String filename) throws InvocationTargetException, NoSuchMethodException, IllegalAccessException, IOException {
         CreatorXls<Place> placeFile = new CreatorXls<>(Place.class);
-        placeFile.createFile(filename, getPlaces() );
+        placeFile.createFile(filename, getPlaces());
     }
 }
 
