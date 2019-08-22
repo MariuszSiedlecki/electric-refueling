@@ -22,6 +22,7 @@ import java.net.URI;
 import java.nio.file.Paths;
 import java.util.List;
 
+@CrossOrigin
 @RestController
 @RequestMapping("/")
 public class PlaceController {
@@ -48,6 +49,7 @@ public class PlaceController {
     public List<Place> getPlaces() {
         return placeService.getPlaces();
     }
+
     @GetMapping(value = "/api/v1/places/file")
     public void getPlacesInFile(@RequestParam String filename) throws IOException, NoSuchMethodException, IllegalAccessException, InvocationTargetException {
         placeService.getFile(filename);
