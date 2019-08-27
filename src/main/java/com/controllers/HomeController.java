@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
+import java.lang.reflect.InvocationTargetException;
+
 @Controller
 public class HomeController {
 
@@ -24,6 +27,7 @@ public class HomeController {
     public String homePage(Model model){
         model.addAttribute("places", placeService.getPlacesDto());
         return "index";
+
     }
     @GetMapping("/add-place")
     public String addPage(){
@@ -36,14 +40,17 @@ public class HomeController {
     }
     @PostMapping("/update")
     public String updatePlace(@RequestBody()PlaceDto place){
-
         return "redirect:/";
     }
     @PostMapping("/add")
     public String addPlace(@ModelAttribute() PlaceDto placeDto){
         System.out.println(placeDto);
         placeService.savePlace(placeMapper.reverseMap(placeDto));
-
+        return "redirect:/";
+    }
+    @GetMapping("/file/xls")
+    public String getFileXls() throws NoSuchMethodException, IOException, IllegalAccessException, InvocationTargetException {
+        placeService.getFile("places");
         return "redirect:/";
     }
 }
