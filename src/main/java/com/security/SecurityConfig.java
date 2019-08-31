@@ -48,13 +48,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     if (exception.getClass().isAssignableFrom(BadCredentialsException.class)) {
                         errorMessage = "Invalid username or password";
                     } else {
-                        errorMesage = "unkonow error" + exception.getMessage();
+                        errorMessage = "unknown error" + exception.getMessage();
                     }
                     request.getSession().setAttribute("message", errorMessage);
                     response.sendRedirect("/login");
                 })
                 .permitAll()
                 .and()
+
                 .logout()
                 .logoutUrl("/logout")
                 .logoutSuccessHandler((request, response, authentication) -> {
