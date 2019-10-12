@@ -11,7 +11,7 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 
 @Component
-public class PlaceMapper implements Mapper<Place, PlaceDto>{
+public class PlaceMapper implements Mapper<Place, PlaceDto> {
 
     @Override
     public PlaceDto map(Place from) {
@@ -47,7 +47,7 @@ public class PlaceMapper implements Mapper<Place, PlaceDto>{
                 .build();
     }
 
-    private enum TagsToStringsList implements Function<Tag, String>{
+    private enum TagsToStringsList implements Function<Tag, String> {
         INSTANCE;
 
         @Override

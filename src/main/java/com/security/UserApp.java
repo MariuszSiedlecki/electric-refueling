@@ -11,13 +11,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 
-
 @Entity
 @NoArgsConstructor
 @Builder
 @AllArgsConstructor
 @Data
-@Table(name="user", schema = "public")
+@Table(name = "user", schema = "public")
 public class UserApp {
 
     @Id
@@ -27,7 +26,7 @@ public class UserApp {
     private String password;
     private int active;
 
-    @ManyToMany(cascade = CascadeType.ALL, fetch=FetchType.EAGER)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     @JoinTable(name = "user_role",
             joinColumns =
             @JoinColumn(name = "user_id"),
